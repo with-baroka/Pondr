@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import type { Item } from "@/types";
-import { TRIGGER_LABELS } from "@/utils/item-labels";
+import { TRIGGER_LABELS, TRIGGER_COLORS } from "@/utils/item-labels";
 import { formatDaysLeft, getWaitProgress } from "@/lib/waiting-days";
 
 const formatDate = (iso: string) =>
@@ -55,7 +55,7 @@ export default function ItemDetailModal({
         if (e.target === e.currentTarget) e.currentTarget.close();
       }}
       aria-labelledby="item-modal-title"
-      className="m-auto max-h-[85vh] w-[calc(100%-2.5rem)] max-w-md overflow-y-auto rounded-2xl border border-gray-200 bg-white p-0 text-gray-900 shadow-lg backdrop:bg-zinc-900/40"
+      className="m-auto max-h-[85vh] w-[calc(100%-2.5rem)] max-w-md overflow-y-auto rounded-2xl border border-gray-200 bg-white p-1 text-gray-900 shadow-lg backdrop:bg-zinc-900/40"
     >
       <div className="relative">
         <button
@@ -72,7 +72,7 @@ export default function ItemDetailModal({
           <img
             src={item.imageUrl}
             alt={item.name}
-            className="h-48 w-full object-cover"
+            className="h-48 w-full rounded-xl object-cover"
           />
         )}
 
@@ -130,7 +130,11 @@ export default function ItemDetailModal({
 
           {/* Why */}
           <section className="space-y-2 border-t border-gray-100 pt-5">
-            <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">
+            <span
+              className={`inline-block rounded-full px-3 py-1 text-xs ${
+                TRIGGER_COLORS[item.trigger].bg
+              } ${TRIGGER_COLORS[item.trigger].text}`}
+            >
               {TRIGGER_LABELS[item.trigger]}
             </span>
             {item.reason && (

@@ -15,6 +15,7 @@ async function ItemsContent() {
     data: { user },
     error: userError,
   } = await supabase.auth.getUser();
+
   if (userError || !user){
     redirect("/login");
   }
@@ -63,7 +64,7 @@ async function ItemsContent() {
 export default function Home() {
   return (
     <main className="min-h-screen px-5 py-10 pb-28">
-      <div className="mx-auto max-w-xl space-y-8">
+      <div className="mx-auto max-w-xl space-y-4">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-semibold tracking-tight text-gray-900">

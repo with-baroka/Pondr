@@ -112,7 +112,7 @@ export default function ItemsBoard({ initialItems }: ItemsBoardProps) {
       {/* Ready to review */}
       {readyItems.length > 0 && (
         <section className="space-y-3">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2">
             <h2 className="font-semibold text-gray-900">
               Ready to review
             </h2>
@@ -136,7 +136,7 @@ export default function ItemsBoard({ initialItems }: ItemsBoardProps) {
       {/* Waiting */}
       {waitingItems.length > 0 && (
         <section className="space-y-3">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2">
             <h2 className="font-semibold text-gray-900">
               Waiting
             </h2>
